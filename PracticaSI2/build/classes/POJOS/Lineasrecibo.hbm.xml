@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-abr-2024 16:27:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Lineasrecibo" table="lineasrecibo" catalog="agua" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="lecturas" class="POJOS.Lecturas" fetch="select">
+            <column name="idRecibo" />
+        </many-to-one>
+        <property name="concepto" type="string">
+            <column name="concepto" not-null="true" />
+        </property>
+        <property name="subconcepto" type="string">
+            <column name="subconcepto" not-null="true" />
+        </property>
+        <property name="baseImponible" type="big_decimal">
+            <column name="baseImponible" precision="10" not-null="true" />
+        </property>
+        <property name="porcentajeIva" type="big_decimal">
+            <column name="porcentajeIVA" precision="10" not-null="true" />
+        </property>
+        <property name="importeiva" type="big_decimal">
+            <column name="importeiva" precision="10" not-null="true" />
+        </property>
+        <property name="m3incluidos" type="int">
+            <column name="m3incluidos" not-null="true" />
+        </property>
+        <property name="bonificacion" type="big_decimal">
+            <column name="bonificacion" precision="10" not-null="true" />
+        </property>
+        <property name="importeBonificacion" type="big_decimal">
+            <column name="importeBonificacion" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>
