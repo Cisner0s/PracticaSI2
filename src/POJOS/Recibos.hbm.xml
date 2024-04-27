@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-abr-2024 16:27:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Recibos" table="recibos" catalog="agua" optimistic-lock="version">
+        <id name="numeroRecibo" type="int">
+            <column name="numeroRecibo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="contribuyente" class="POJOS.Contribuyente" fetch="select">
+            <column name="idContribuyente" not-null="true" />
+        </many-to-one>
+        <property name="nifContribuyente" type="string">
+            <column name="nifContribuyente" not-null="true" />
+        </property>
+        <property name="direccionCompleta" type="string">
+            <column name="direccionCompleta" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" not-null="true" />
+        </property>
+        <property name="fechaRecibo" type="date">
+            <column name="fechaRecibo" length="10" not-null="true" />
+        </property>
+        <property name="lecturaAnterior" type="int">
+            <column name="lecturaAnterior" not-null="true" />
+        </property>
+        <property name="lecturaActual" type="int">
+            <column name="lecturaActual" not-null="true" />
+        </property>
+        <property name="consumom3" type="int">
+            <column name="consumom3" not-null="true" />
+        </property>
+        <property name="fechaPadron" type="date">
+            <column name="fechaPadron" length="10" not-null="true" />
+        </property>
+        <property name="totalBaseImponible" type="big_decimal">
+            <column name="totalBaseImponible" precision="10" not-null="true" />
+        </property>
+        <property name="totalIva" type="big_decimal">
+            <column name="totalIVA" precision="10" not-null="true" />
+        </property>
+        <property name="totalRecibo" type="big_decimal">
+            <column name="totalRecibo" precision="10" not-null="true" />
+        </property>
+        <property name="iban" type="string">
+            <column name="IBAN" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="exencion" type="string">
+            <column name="exencion" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
